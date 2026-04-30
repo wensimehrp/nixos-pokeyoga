@@ -213,7 +213,7 @@
     zed-editor-fhs
     refine
     aseprite
-    krita
+    # krita
     qq
     imagemagick
     nixfmt
