@@ -59,5 +59,6 @@
     SDL_IM_MODULE = "fcitx";
     GLFW_IM_MODULE = "ibus";
     QT_WAYLAND_DECORATION = "adwaita";
+    QT_QPA_PLATFORM = "wayland";
   };
 }

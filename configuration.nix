@@ -213,7 +213,7 @@
     zed-editor-fhs
     refine
     aseprite
-    # krita
+    krita
     qq
     imagemagick
     nixfmt
@@ -229,10 +229,16 @@
     jjui
     # some gnome stuff
     wordbook
-    lutris
+    # lutris
     gnome-network-displays
     amberol
-    celluloid
+    # celluloid
+    # (mpv.override {
+    #   scripts = [
+    #     mpvScripts.uosc
+    #     mpvScripts.sponsorblock
+    #   ];
+    # })
     # development use
     ungoogled-chromium
   ];
