@@ -147,6 +147,7 @@
     ];
     packages = with pkgs; [
       #  thunderbird
+      brush
     ];
   };
 
@@ -232,7 +233,7 @@
     # lutris
     gnome-network-displays
     amberol
-    # celluloid
+    celluloid
     # (mpv.override {
     #   scripts = [
     #     mpvScripts.uosc
