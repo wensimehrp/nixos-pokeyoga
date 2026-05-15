@@ -146,8 +146,7 @@
       "input"
     ];
     packages = with pkgs; [
-      #  thunderbird
-      brush
+      # thunderbird
     ];
   };
 
@@ -218,7 +217,7 @@
     qq
     imagemagick
     nixfmt
-    davinci-resolve
+    # davinci-resolve
     nh
     nil
     # devtools
@@ -234,12 +233,6 @@
     gnome-network-displays
     amberol
     celluloid
-    # (mpv.override {
-    #   scripts = [
-    #     mpvScripts.uosc
-    #     mpvScripts.sponsorblock
-    #   ];
-    # })
     # development use
     ungoogled-chromium
   ];
