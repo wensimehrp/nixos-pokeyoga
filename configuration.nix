@@ -219,7 +219,7 @@
     nixfmt
     # davinci-resolve
     nh
-    nil
+    nixd
     # devtools
     ripgrep
     fd
