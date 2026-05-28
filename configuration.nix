@@ -29,7 +29,11 @@
   # options lenovo-ymc force=1
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "i2c_hid.polling_mode=1"
+    "acpi_osi=Linux"
+  ];
 
   # fingerprint unlocking
   services.fprintd.enable = true;
@@ -84,9 +88,9 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  services.gnome = {
-    games.enable = true;
-  };
+  # services.gnome = {
+  #   games.enable = true;
+  # };
   environment.gnome.excludePackages = (
     with pkgs;
     [
@@ -145,8 +149,12 @@
       "wheel"
       "input"
     ];
-    packages = with pkgs; [
-      # thunderbird
+  };
+  users.users.testing = {
+    isNormalUser = true;
+    description = "Testing";
+    extraGroups = [
+      "networkmanager"
     ];
   };
 
@@ -232,7 +240,8 @@
     # lutris
     gnome-network-displays
     amberol
-    celluloid
+    # celluloid
+    cine
     # development use
     ungoogled-chromium
   ];
