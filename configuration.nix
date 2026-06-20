@@ -21,19 +21,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.sensor.iio.enable = true;
-  # boot.extraModprobeConfig = ''
-  #   options snd-intel-dspcfg dsp_driver=1
-  # '';
-  # options snd-intel-dspcfg dsp_driver=1
-  # options ideapad-laptop ec_trigger=1
-  # options lenovo-ymc force=1
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    "i2c_hid.polling_mode=1"
-    "acpi_osi=Linux"
-  ];
 
   # fingerprint unlocking
   services.fprintd.enable = true;
@@ -88,15 +78,6 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  # services.gnome = {
-  #   games.enable = true;
-  # };
-  environment.gnome.excludePackages = (
-    with pkgs;
-    [
-      totem
-    ]
-  );
   qt = {
     enable = true;
     style = "adwaita";
@@ -114,15 +95,11 @@
 
   # enable git
   programs.git.enable = true;
+  programs.git.lfs.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
-  programs.kdeconnect = {
-    enable = true;
-    package = pkgs.gnomeExtensions.gsconnect;
-  };
 
   services.pipewire = {
     enable = true;
@@ -164,15 +141,8 @@
     package = pkgs.firefox;
   };
 
-  # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
-
   # firmware settings
   hardware.enableRedistributableFirmware = true;
-  hardware.firmware = with pkgs; [
-    sof-firmware
-    alsa-firmware
-  ];
 
   zramSwap.enable = true;
 
@@ -198,10 +168,13 @@
     ];
   };
 
+  # in case if an application likes to look into /usr/bin
+  # and doesn't like using /usr/bin/env
+  services.envfs.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # theming related
     adw-gtk3
     qadwaitadecorations
@@ -237,7 +210,9 @@
     jjui
     # some gnome stuff
     wordbook
-    # lutris
+    bottles
+    wineWow64Packages.stagingFull
+    libadwaita
     gnome-network-displays
     amberol
     # celluloid
