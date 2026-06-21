@@ -55,11 +55,6 @@
   #   "https://mirrors.ustc.edu.cn/nix-channels/store"
   # ];
 
-  virtualisation.waydroid = {
-    enable = true;
-    package = pkgs.waydroid-nftables;
-  };
-
   # Set your time zone.
   time.timeZone = "America/Vancouver";
 
@@ -146,7 +141,6 @@
 
   zramSwap.enable = true;
 
-  programs.dconf.enable = true;
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
@@ -185,12 +179,10 @@
     # sys utils
     wget
     gitui
-    waydroid-helper
     vesktop
     direnv
     rnote
     gh
-    vscode-fhs
     zed-editor-fhs
     refine
     aseprite
@@ -198,7 +190,6 @@
     qq
     imagemagick
     nixfmt
-    # davinci-resolve
     nh
     nixd
     # devtools
@@ -211,11 +202,11 @@
     # some gnome stuff
     wordbook
     bottles
+    resources
     wineWow64Packages.stagingFull
     libadwaita
     gnome-network-displays
     amberol
-    # celluloid
     cine
     # development use
     ungoogled-chromium
