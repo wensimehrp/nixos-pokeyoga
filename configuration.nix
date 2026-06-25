@@ -73,6 +73,7 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = [ pkgs.showtime ];
   qt = {
     enable = true;
     style = "adwaita";
@@ -208,6 +209,7 @@
     gnome-network-displays
     amberol
     cine
+    gnome-sound-recorder
     # development use
     ungoogled-chromium
   ];
