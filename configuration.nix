@@ -225,6 +225,7 @@
     cups-pdf-to-pdf
     bubblewrap
     typst
+    wl-clipboard
   ];
 
   # bluetooth stuff
