@@ -226,6 +226,7 @@
     bubblewrap
     typst
     wl-clipboard
+    mangohud
   ];
 
   # bluetooth stuff
